@@ -64,8 +64,12 @@ function greet(){
 
 greet();
 
+
+
 //types of functions
 //1. Function Declaration
+//description: A function declaration defines a named function that can be called later in the code. 
+// It is hoisted, meaning it can be called before its definition in the code.
 function add(a,b){
     return a+b;
 }
