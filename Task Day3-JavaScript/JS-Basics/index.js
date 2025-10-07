@@ -260,15 +260,97 @@ multipleJsonResponse.forEach(person => {
 //6. Callback Function
 //description: A callback function is a function that is passed as an argument to another function and is executed after the outer function completes its task.
 // It is often used for asynchronous programming and event handling.
-//example of callback function
-function displayResult(result){
-    console.log("Result: "+result);
+//async programming means the code is executed in a non-blocking way
+//event handling means the code is executed in response to an event such as a button click or a form submission
+
+// in ecomercewebsite the callback function is used to handle the response of an api call
+//example of api call using fetch
+// fetch("https://jsonplaceholder.typicode.com/posts")
+// .then(response=>response.json()) // callback function to handle the response
+// .then(data=>console.log(data)) // callback function to handle the data
+// .catch(error=>console.log(error)); // callback function to handle the error
+// //end of example of api call using fetch
+
+// //in a website the callback function is used to handle the click event of a button
+// //example of click event
+// document.getElementById("myButton").addEventListener("click",function(){
+//     console.log("Button clicked");
+// });
+// //end of example of click event
+
+// //in a website the callback function is used to handle the form submission event
+// //example of form submission event
+// document.getElementById("myForm").addEventListener("submit",function(event){
+//     event.preventDefault(); // prevent the default form submission behavior
+//     console.log("Form submitted");
+// });
+// //end of example of form submission event
+
+// //in a website the callback function is used to handle the setTimeout event
+// //example of setTimeout event
+// setTimeout(function(){
+//     console.log("This message is displayed after 2 seconds");
+// },2000);
+// //end of example of setTimeout event
+
+// //in a website the callback function is used to handle the setInterval event
+// //example of setInterval event
+// setInterval(function(){
+//     console.log("This message is displayed every 2 seconds");
+// },2000);
+// //end of example of setInterval event
+
+// //in a website the callback function is used to handle the array methods such as map, filter, reduce, forEach
+// //example of map method
+// let arr=[1,2,3,4,5];
+// let squaredArr=arr.map(function(num){
+//     return num*num;
+// });
+// console.log(squaredArr); // [1,4,9,16,25]
+// //end of example of map method
+
+// //example of filter method
+// let evenArr=arr.filter(function(num){
+//     return num%2===0;
+// });
+// console.log(evenArr); // [2,4]
+// //end of example of filter method
+
+// //example of reduce method
+// let sumArr=arr.reduce(function(acc,cur){
+//     return acc+cur;
+// },0);
+// console.log(sumArr); // 15
+// //end of example of reduce method
+
+// //example of forEach method
+// arr.forEach(function(num){
+//     console.log(num);
+// });
+// //end of example of forEach method
+
+// //end of types of functions 
+// //example of callback function
+// function displayResult(result){
+//     console.log("Result: "+result);
+// }
+// function calculate(a,b,callback){
+//     let sum=a+b;
+//     callback(sum);
+// }
+// calculate(10,5,displayResult);
+
+//simple example of callback function
+function fetchData(callback){
+    setTimeout(function(){
+        const data="Hello from fetchData";
+        callback(data);
+    },2000);
 }
-function calculate(a,b,callback){
-    let sum=a+b;
-    callback(sum);
-}
-calculate(10,5,displayResult);
+fetchData(function(result){
+    console.log("callback:"+result);
+});
+//end of simple example of callback function    
 
 //7. Higher-Order Function
 //description: A higher-order function is a function that takes another function as an argument or returns a function as its result.
@@ -280,18 +362,86 @@ function higherOrderFunction(fn){
 higherOrderFunction(function(){
     console.log("This is a higher-order function");
 });
-
+console.log("This is a higher-order function example");
 //8. Generator Function
+//description: A generator function is a special type of function that can be paused and resumed, allowing it to generate a sequence of values over time.
+// It is defined using the function* syntax and uses the yield keyword to produce values.
+// The generator function returns an iterator object that can be used to iterate over the generated values.
+//in a website the generator function is used to handle large data sets
+//example of generator function
 function* generatorFunction(){
     yield 1;
     yield 2;
     yield 3;
 }
 const generator=generatorFunction();
-console.log(generator.next().value); // 1
-console.log(generator.next().value); // 2
-console.log(generator.next().value); // 3
-console.log(generator.next().value); // undefined
+console.log("generator call : "+generator.next().value); // 1
+console.log("generator call : "+generator.next().value); // 2
+console.log("generator call : "+generator.next().value); // 3
+console.log("generator call : "+generator.next().value); // undefined
+//end of example of generator function
+//end of types of functions
+
+//in industrylevel the generator function is used to handle large data sets
+//example of generator function
+function* idGenerator(){
+    let id=1;
+    while(true){
+        yield id++;
+    }
+}
+const idGen=idGenerator();
+console.log(idGen.next().value); // 1
+console.log(idGen.next().value); // 2
+console.log(idGen.next().value); // 3
+//end of example of generator function
+//end of industrylevel the generator function is used to handle large data sets
+//in a website the generator function is used to handle pagination
+//example of pagination using generator function
+function* paginate(items,pageSize){
+    let page=0;
+    while(page*pageSize<items.length){
+        yield items.slice(page*pageSize,(page+1)*pageSize);
+        page++;
+    }
+}
+const items=[1,2,3,4,5,6,7,8,9,10];
+const paginator=paginate(items,3);
+console.log(paginator.next().value); // [1,2,3]
+console.log(paginator.next().value); // [4,5,6]
+console.log(paginator.next().value); // [7,8,9]
+console.log(paginator.next().value); // [10]
+console.log(paginator.next().value); // undefined
+//end of example of pagination using generator function
+//end of types of functions
+//in ecomerce website the generator function is used to handle infinite scrolling
+//example of infinite scrolling using generator function
+function* infiniteScroll(items){
+    let index=0;
+    while(true){
+        if(index<items.length){
+            yield items[index++];
+        }else{
+            yield null;
+        }
+    }
+}
+const scrollItems=[1,2,3,4,5,6,7,8,9,10];
+const scroller=infiniteScroll(scrollItems);
+console.log(scroller.next().value); // 1
+console.log(scroller.next().value); // 2
+console.log(scroller.next().value); // 3
+console.log(scroller.next().value); // 4
+console.log(scroller.next().value); // 5
+console.log(scroller.next().value); // 6
+console.log(scroller.next().value); // 7
+console.log(scroller.next().value); // 8
+console.log(scroller.next().value); // 9
+console.log(scroller.next().value); // 10
+console.log(scroller.next().value); // null
+console.log(scroller.next().value); // null
+//end of example of infinite scrolling using generator function
+//end of types of functions 
 
 //9. Async Function
 async function asyncFunction(){
