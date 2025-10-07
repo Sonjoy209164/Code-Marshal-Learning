@@ -24,6 +24,11 @@ console.log(`My name is ${firstName} ${lastName}`); // template literals
 // Data types in JavaScript
 // Primitive data types: string, number, boolean, null, undefined, symbol, bigint
 // Non-primitive data types: object, array, function
+//primitive means simple data types which store single value
+//more about primitive and non-primitive data types in next file
+//primitive data types are immutable (cannot be changed)
+//non-primitive data types are mutable (can be changed) 
+//non-primitive means complex data types which store multiple values
 
 let age=22; // number
 let isStudent=true; // boolean
@@ -31,12 +36,25 @@ let address=null; // null
 let phoneNumber; // undefined
 let symbol=Symbol("id"); // symbol
 let bigInt=9007199254740991n; // bigint
-
+// non-primitive data types 
+// object, array, function
 let person={
     name:"Sonjoy Roy",
     age:22,
     isStudent:true
 }; // object
+//accessing object properties
+console.log(person.name);
+console.log(person["age"]);
+// modifying object properties
+person.age=23;
+console.log(person.age);
+// adding new property
+person.address="Dhaka, Bangladesh";
+console.log(person);
+// deleting property
+delete person.isStudent;
+console.log(person);        
 
 let numbers=[1,2,3,4,5]; // array
 
@@ -45,6 +63,172 @@ function greet(){
 } // function
 
 greet();
+
+//types of functions
+//1. Function Declaration
+function add(a,b){
+    return a+b;
+}
+console.log(add(10,5));
+
+//2. Function Expression
+// const subtract =function(a,b){
+//     return a-b;
+// }
+// console.log(subtract(10,5));
+
+//3. Arrow Function
+const multiply=(a,b)=>{
+    return a*b;
+}
+console.log(multiply(10,5));
+
+//4. Immediately Invoked Function Expression (IIFE)
+(function(a,b){
+    console.log(a/b);
+})(10,5);
+
+//5. Recursive Function
+function factorial(n){
+    if(n===0){
+        return 1;
+    }else{
+        return n*factorial(n-1);
+    }
+}
+console.log(factorial(5)); // 5*4*3*2*1=120
+
+//6. Callback Function
+function displayResult(result){
+    console.log("Result: "+result);
+}
+function calculate(a,b,callback){
+    let sum=a+b;
+    callback(sum);
+}
+calculate(10,5,displayResult);
+
+//7. Higher-Order Function
+function higherOrderFunction(fn){
+    fn();
+}
+higherOrderFunction(function(){
+    console.log("This is a higher-order function");
+});
+
+//8. Generator Function
+function* generatorFunction(){
+    yield 1;
+    yield 2;
+    yield 3;
+}
+const generator=generatorFunction();
+console.log(generator.next().value); // 1
+console.log(generator.next().value); // 2
+console.log(generator.next().value); // 3
+console.log(generator.next().value); // undefined
+
+//9. Async Function
+async function asyncFunction(){
+    return "Hello from async function";
+}
+asyncFunction().then(result=>console.log(result));
+
+//10. Constructor Function
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+}
+const person1=new Person("Sonjoy Roy",22);
+console.log(person1.name);
+console.log(person1.age);
+
+//11. Method
+const obj={
+    name:"Sonjoy Roy",
+    age:22,
+    greet:function(){
+        console.log("Hello "+this.name);
+    }
+};
+obj.greet();
+
+//12. Static Method
+class MyClass{
+    static myStaticMethod(){
+        console.log("This is a static method");
+    }
+}
+MyClass.myStaticMethod();
+
+//13. Instance Method
+class AnotherClass{
+    constructor(name){
+        this.name=name;
+    }
+    myInstanceMethod(){
+        console.log("Hello "+this.name);
+    }
+}
+const anotherObj=new AnotherClass("Sonjoy Roy");
+anotherObj.myInstanceMethod();
+
+//14. Async/Await Function
+async function fetchData(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("Data fetched");
+        },2000);
+    });
+}
+async function asyncAwaitFunction(){
+    const data=await fetchData();
+    console.log(data);
+}
+asyncAwaitFunction();
+
+//15. Pure Function
+function pureFunction(a,b){
+    return a+b;
+}
+console.log(pureFunction(10,5));
+console.log(pureFunction(10,5)); // always returns same output for same input
+
+//16. Impure Function
+let count=0;
+function impureFunction(){
+    count++;
+    return count;
+}
+console.log(impureFunction());
+console.log(impureFunction()); // returns different output for same input
+
+//17. Anonymous Function
+setTimeout(function(){
+    console.log("This is an anonymous function");
+},1000);
+
+//18. Named Function Expression
+const namedFunctionExpression=function myNamedFunction(){
+    console.log("This is a named function expression");
+};
+namedFunctionExpression();
+
+//19. Rest Parameter Function
+function restParameterFunction(...args){
+    return args.reduce((acc,cur)=>acc+cur,0);
+}
+console.log(restParameterFunction(1,2,3,4,5)); // 15
+
+//20. Default Parameter Function
+function defaultParameterFunction(a,b=5){
+    return a+b;
+}
+console.log(defaultParameterFunction(10)); // 15
+console.log(defaultParameterFunction(10,20)); // 30
+
+// End of types of functions        
+
 
 // typeof operator
 console.log(typeof name); // string
