@@ -1,5 +1,18 @@
 console.log("Hello World");
 let name="Sonjoy Roy";
+//let is used to declare a variable
+//var is also used to declare a variable but it is not recommended to use var
+//const is used to declare a constant variable which cannot be changed
+//var vs let vs const
+//var is function scoped
+//let and const are block scoped
+//var can be re-declared and updated
+//let can be updated but not re-declared
+//const cannot be updated or re-declared
+//it is recommended to use let and const instead of var
+//it is recommended to use const by default and use let only when you need to update the variable
+//it is recommended to use camelCase for variable names
+//it is recommended to use meaningful variable names
 console.log(name);
 // naming rules if is not valid
 // let 1name="Sonjoy Roy"; // cannot start with number
@@ -444,19 +457,95 @@ console.log(scroller.next().value); // null
 //end of types of functions 
 
 //9. Async Function
+//description: An async function is a function that is declared with the async keyword and allows the use of the await keyword inside it.
+// It is used to handle asynchronous operations in a more synchronous-like manner, making the code easier to read and maintain.
+//example of async function 
 async function asyncFunction(){
     return "Hello from async function";
 }
 asyncFunction().then(result=>console.log(result));
 
-//10. Constructor Function
-function Person(name,age){
-    this.name=name;
-    this.age=age;
-}
-const person1=new Person("Sonjoy Roy",22);
-console.log(person1.name);
-console.log(person1.age);
+
+// //in industrylevel the async function is used to handle api calls
+// //example of api call using async function
+// //explaination: the function fetchApiData is declared as async
+// //the await keyword is used to wait for the fetch call to complete
+// //the response is then converted to json format using response.json() method
+// //the data is then logged to the console
+// //if there is an error it is caught in the catch block and logged to the console    
+
+// async function fetchApiData(){
+//     try{
+//         const response=await fetch("https://jsonplaceholder.typicode.com/posts");
+//         const data=await response.json();
+//         console.log(data);
+//     }catch(error){
+//         console.log(error);
+//     }
+// }
+// fetchApiData();//output: [{userId: 1, id: 1, title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit", body: "quia et suscipit\nsuscipit... (example output)}
+// //end of example of api call using async function
+// //end of industrylevel the async function is used to handle api calls
+
+// //in a website the async function is used to handle form submission
+// //example of form submission using async function
+// async function submitForm(event){
+//     event.preventDefault(); // prevent the default form submission behavior
+//     const formData=new FormData(event.target);
+//     try{
+//         const response=await fetch("https://jsonplaceholder.typicode.com/posts",{
+//             method:"POST",
+//             body:formData
+//         });
+//         const data=await response.json();
+//         console.log(data);
+//     }catch(error){
+//         console.log(error);
+//     }   
+// // in e comerce website the async function is used to handle payment processing
+// //example of payment processing using async function
+// //description: the function processPayment takes paymentDetails as input and makes a POST request to the api endpoint
+// //code explaination: using fetch api to make a POST request to the api endpoint
+// //the await keyword is used to wait for the response from the api
+// //the response is then converted to json format using response.json() method
+// //the data is then logged to the console
+// //if there is an error it is caught in the catch block and logged to the console
+// async function processPayment(paymentDetails){
+//     try{
+//         const response=await fetch("https://jsonplaceholder.typicode.com/posts",{
+//             method:"POST",
+//             body:JSON.stringify(paymentDetails),
+//             headers:{
+//                 "Content-Type":"application/json"
+//             }
+//         });
+//         const data=await response.json();
+//         console.log(data);
+//     }catch(error){
+//         console.log(error);
+//     }
+// }
+// const paymentDetails={
+//     cardNumber:"1234 5678 9012 3456",
+//     expiryDate:"12/25",
+//     cvv:"123",
+//     amount:100
+// };
+// processPayment(paymentDetails);//output: {id: 101, cardNumber: "1234 5678 9012 3456", expiryDate: "12/25", cvv: "123", amount: 100} (example output)
+// //end of example of payment processing using async function
+// //end of types of functions 
+// }
+// document.getElementById("myForm").addEventListener("submit",submitForm);
+// //end of example of form submission using async function
+// //end of types of functions     
+// //10. Constructor Function
+// function Person(name,age){
+//     this.name=name;
+//     this.age=age;
+// }
+// const person1=new Person("Sonjoy Roy",22);
+// console.log(person1.name);
+// console.log(person1.age);
 
 //11. Method
 const obj={
@@ -469,6 +558,45 @@ const obj={
 obj.greet();
 
 //12. Static Method
+//description: A static method is a method that belongs to the class itself rather than to any specific instance of the class.
+// It is defined using the static keyword and can be called without creating an instance of the class.
+// Static methods are often used for utility functions or factory methods that do not require access to instance properties or methods.
+//utility functions are functions that perform common tasks that can be reused across multiple parts of an application
+//factory methods are methods that create and return instances of a class
+//in a website the static method is used to create utility functions that can be used across multiple instances of a class
+//in industrylevel the static method is used to create factory methods that create and return instances of a class
+//for example in a website the static method is used to create a utility function that formats a date
+class DateFormatter{
+    static formatDate(date){
+        return date.toISOString().split("T")[0];
+    }
+}
+const date=new Date();
+console.log("date formater static method"+ DateFormatter.formatDate(date)); // 2023-10-01 (example output)
+
+//ecomerce website example of static method
+class Product{
+    constructor(name,price){
+        this.name=name;
+        this.price=price;
+    }
+    static applyDiscount(product,discount){
+        return product.price-(product.price*discount)/100;
+    }
+}
+const product1=new Product("Laptop",1000);
+console.log("ecomerce website static method"+Product.applyDiscount(product1,10)); // 900 (example output)   
+//end of example of static method
+//end of industrylevel the static method is used to create factory methods that create and return instances of a class
+//in a website the static method is used to create utility functions that can be used across multiple instances of a class
+//for example in a website the static method is used to create a utility function that validates an email
+class EmailValidator{
+    static validateEmail(email){
+        const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+} 
+//example of static method
 class MyClass{
     static myStaticMethod(){
         console.log("This is a static method");
@@ -477,6 +605,13 @@ class MyClass{
 MyClass.myStaticMethod();
 
 //13. Instance Method
+//description: An instance method is a method that belongs to a specific instance of a class.
+// It is defined without the static keyword and can be called only on an instance of the class.
+// Instance methods often operate on instance properties and can access other instance methods.
+//in a website the instance method is used to create methods that operate on instance properties
+//for example in a website the instance method is used to create a method that greets a user by name
+//description: the class User has a constructor that initializes the name property    
+
 class AnotherClass{
     constructor(name){
         this.name=name;
@@ -488,7 +623,13 @@ class AnotherClass{
 const anotherObj=new AnotherClass("Sonjoy Roy");
 anotherObj.myInstanceMethod();
 
+//
+
 //14. Async/Await Function
+//description: An async/await function is a function that is declared with the async 
+// keyword and uses the await keyword to pause the execution of the function until a Promise is resolved.
+//promises are used to handle asynchronous operations in JavaScript
+//example of async/await function
 async function fetchData(){
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
@@ -502,7 +643,24 @@ async function asyncAwaitFunction(){
 }
 asyncAwaitFunction();
 
+// async/await function in ecomerce website
+//example of async/await function
+async function fetchProductDetails(productId){
+    try{
+        const response=await fetch(`https://fakestoreapi.com/products/${productId}`);
+        const data=await response.json();
+        console.log("dataaaaa"+data);
+    }catch(error){
+        console.log(error);
+    }
+}
+fetchProductDetails(1); // output: {id: 1, title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops", price: 109.95, description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday", category          
+
+
 //15. Pure Function
+//description: A pure function is a function that always produces the same output for the same input and does not have any side effects.
+// Side effects are any changes to the state of the program or external environment, such as modifying a global variable or changing the DOM.
+// Pure functions are often used in functional programming and can make code easier to reason about and test.
 function pureFunction(a,b){
     return a+b;
 }
