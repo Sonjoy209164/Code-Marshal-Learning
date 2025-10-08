@@ -140,3 +140,14 @@ function drawHistogram(imgData){
 [grayscale, histEq, morphology, merge].forEach(el=>{
   el.addEventListener('input',updateCanvas);
 });
+
+
+//full workflow of the code
+//1. Select an image using the file input element. This triggers the 'change' event listener which loads the image.
+//2. Once the image is loaded, the 'onload' event is triggered, setting img1Loaded to true and updating the canvas size.
+//3. The updateCanvas function is called to draw the image on the canvas.
+//4. If a second image is selected, it is loaded similarly and drawn on top of the first image with adjustable opacity.
+//5. If any transformations (grayscale, histogram equalization, morphological operations) are selected, they are applied to the image data.
+//6. The modified image data is put back onto the canvas.
+//7. The histogram of the current image is calculated and drawn on a separate histogram canvas.
+//8. Any changes to the transformation options trigger the updateCanvas function again to reflect the changes in real-time.
