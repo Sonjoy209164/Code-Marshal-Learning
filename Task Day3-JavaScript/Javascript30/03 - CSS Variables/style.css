@@ -1,0 +1,47 @@
+body {
+  background: #1b2b3a;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+h2, h3 {
+  color: #ffc600;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  background: #233544;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  margin-bottom: 30px;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.controls input[type="file"],
+.controls input[type="range"],
+.controls select,
+.controls input[type="checkbox"] {
+  margin: 5px;
+  cursor: pointer;
+}
+
+canvas {
+  display: block;
+  margin: 20px auto;
+  max-width: 90%;
+  border: 2px solid #ffc600;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  background: #1b2b3a;
+}
