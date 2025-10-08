@@ -1,8 +1,0 @@
-For git :
-https://drive.google.com/file/d/1CcP5ZiMI4i0KqDoPxZn9vOnOKFaOl-Cp/view?usp=sharing
-
-For JavaScript :
-https://eloquentjavascript.net/
-
-For JavaScript practice :
-https://github.com/Y3454R/JavaScript-Practice
