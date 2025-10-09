@@ -1,0 +1,134 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Body Styling ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #232526, #414345);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Container Styling ===== */
+#container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+#container:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== Heading ===== */
+#main-heading {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#container2 {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;    
+  background: rgba(255, 255, 255, 0.05);
+  /* // here the padding 20px means top and bottom 20px and left and right 25px next 30px means bottom 30px and left and right 25px */
+  padding: 20px 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+
+}
+#container2 button {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* #container2 {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap; /* wrap buttons on smaller screens */
+  /* justify-content: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease; */
+
+#container2:hover {
+  transform: translateY(-5px);
+
+}  
+
+
+#container2 button {
+  background: linear-gradient(135);
+}
+#container2 button:hover {
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+    transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(0, 114, 255, 0.4);
+}
+
+/* ===== List Styling ===== */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.list-items {
+  font-size: 1.1rem;
+  margin: 12px 0;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.list-items:hover {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 600px) {
+  #container {
+    padding: 25px 30px;
+  }
+
+  #main-heading {
+    font-size: 1.7rem;
+  }
+
+  .list-items {
+    font-size: 1rem;
+  }
+}
