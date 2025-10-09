@@ -81,5 +81,28 @@ li.style.margin = "5px";
 li.style.padding = "5px";
 li.style.borderRadious="5px";
 
-//removing elements
-const ul1 = document.querySelector("")
+//modifying the  elements
+const firstListItem1= document.querySelector('.list-items');
+console.log(firstListItem1);
+console.log(firstListItem1.innerText);
+console.log(firstListItem1.textContent);
+console.log(firstListItem1.innerHTML);
+firstListItem1.innerText = "The Shawshank Redemption (1994) - Modified";
+
+
+//modifying attribues and classes
+li.setAttribute("id", "main-heading");
+li.removeAttribute("id");
+
+const title1= document.querySelector("#main-heading");
+console.log(title1.getAttribute("id"));
+
+li.classList.remove("list-items");
+console.log(li.classList.contains("list-items"));
+li.classList.add("list-items");
+console.log(li.classList.contains("list-items"));
+
+//remove elements
+li.remove();
+
+
