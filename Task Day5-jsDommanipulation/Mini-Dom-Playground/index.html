@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Designer Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎨 DOM Designer Studio</h1>
+    <p>Create, nest, and style elements visually — instantly!</p>
+  </header>
+
+  <main>
+    <section id="element-controls" class="panel">
+      <h2>🧱 Element Creator</h2>
+
+      <div class="control-group">
+        <label for="elementType">Element Type:</label>
+        <select id="elementType">
+          <option value="div">Div</option>
+          <option value="h1">Heading (h1)</option>
+          <option value="p">Paragraph</option>
+          <option value="button">Button</option>
+          <option value="img">Image</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="elementText">Content or Image URL:</label>
+        <input type="text" id="elementText" placeholder="Enter text or image link" />
+      </div>
+
+      <div class="control-group">
+        <label for="parentSelect">Add to Parent:</label>
+        <select id="parentSelect">
+          <option value="canvas">Main Canvas</option>
+        </select>
+      </div>
+
+      <button id="addElementBtn">Add Element</button>
+      <button id="removeLastBtn">Remove Last Element</button>
+      <button id="clearCanvasBtn">Clear Canvas</button>
+    </section>
+
+    <section id="style-controls" class="panel">
+      <h2>🎨 Style Controls</h2>
+
+      <div class="style-row">
+        <label>Background:</label>
+        <input type="color" id="bgColor" />
+      </div>
+
+      <div class="style-row">
+        <label>Text Color:</label>
+        <input type="color" id="textColor" />
+      </div>
+
+      <div class="style-row">
+        <label>Padding (px):</label>
+        <input type="range" id="paddingRange" min="0" max="50" value="10" />
+        <span id="paddingValue">10</span>
+      </div>
+
+      <div class="style-row">
+        <label>Border Radius (px):</label>
+        <input type="range" id="radiusRange" min="0" max="50" value="10" />
+        <span id="radiusValue">10</span>
+      </div>
+
+      <div class="style-row">
+        <label>Font Size (px):</label>
+        <input type="range" id="fontSizeRange" min="10" max="40" value="16" />
+        <span id="fontSizeValue">16</span>
+      </div>
+
+      <button id="applyStylesBtn">Apply Styles</button>
+    </section>
+
+    <section id="canvas-container">
+      <h2>🪄 Live Preview</h2>
+      <div id="canvas"></div>
+    </section>
+
+    <section id="tree-view" class="panel">
+      <h2>🌳 DOM Structure</h2>
+      <ul id="structureList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built by Sonjoy’s DOM Studio | 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
