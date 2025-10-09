@@ -9,6 +9,7 @@
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <script>
     // Get your shorts on - this is an array workout!
+
     // ## Array Cardio Day 1
 
     // Some data we can work with
@@ -38,21 +39,83 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-
+    // const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+    // console.table(fifteen);
+    const six= inventors.filter(inventor=>(inventor.year>=1400 && inventor.year<1700 ));
+    console.table(six)
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    const last_name = inventors.map(inventor=>('${inventor.first} ${inventor.last}' ));
+    console.log(last_name);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const ordered = inventors.sort((a,b)=>(a.year>b.year ? 1 : -1));
+    console.table(ordered);
+    ordered1 = inventors.sort((a,b)=> a.year - b.year);
+    console.table(ordered1);
+    //here b.year - a.year will sort from youngest to oldest
+    //for example if a.year=1879 and b.year=1643 then 1643-1879 will be negative so b comes first
+    //if a.year=1643 and b.year=1879 then 1879-1643 will be positive so a comes first
+    //if both are equal then 0 will be returned and their order will remain the same
+    //so the final result will be sorted from youngest to oldest
+    //you can also use a.year - b.year to sort from oldest to youngest
+    //because if a.year=1879 and b.year=1643 then 1879-1643 will be positive so a comes first
+    //if a.year=1643 and b.year=1879 then 1643-1879 will be negative so b comes first
+    //if both are equal then 0 will be returned and their order will remain the same
+    //so the final result will be sorted from oldest to youngest
+    //try to understand this logic properly
+    //this is a common pattern used in sorting algorithms
+    //you can use this pattern to sort any array of objects based on any property
+    //just replace year with the property you want to sort by
+    //for example if you want to sort by last name then use a.last - b.last
+    //if you want to sort by first name then use a.first - b.first
+    //if you want to sort by age then use (a.passed - a.year) - (b.passed - b.year)
+    //this will sort by age in ascending order
+    //if you want to sort by age in descending order then use (b.passed - b.year) - (a.passed - a.year)
+    //this will sort by age in descending order
+    //try to implement these variations on your own
+    //it will help you understand the concept better
+    //you can also use localeCompare for string properties
+    //for example if you want to sort by last name then use a.last.localeCompare(b.last)
+    //this will sort by last name in ascending order
+    //if you want to sort by last name in descending order then use b.last.localeCompare(a.last)
+    //this will sort by last name in descending order
+    //try to implement these variations on your own
+    //it will help you understand the concept better
+    //you can also chain multiple sort conditions
+    //for example if you want to sort by last name and then by first name then use
+    //a.last.localeCompare(b.last) || a.first.localeCompare(b.first)
+    //this will sort by last name first and then by first name if last names are equal
+    //try to implement these variations on your own   
+    //you can also chain multiple sort conditions
+    //for example if you want to sort by last name and then by first name then use
+    //a.last.localeCompare(b.last) || a.first.localeCompare(b.first)
+    //this will sort by last name first and then by first name if last names are equal
+    //try to implement these variations on your own
+    //it will help you understand the concept better
+    ordered2 = inventors.sort((a,b)=> b.year - a.year);
+    console.table(ordered2);
+    
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    const totalYears = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year);
+    }, 0);
+    console.log(totalYears);
 
     // 5. Sort the inventors by years lived
+    const oldest = inventors.sort((a,b)=>{
+      const lastInventor = a.passed - a.year;
+      const nextInventor = b.passed - b.year;
+      return lastInventor > nextInventor ? -1 : 1;
+    });
+    console.table(oldest);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
