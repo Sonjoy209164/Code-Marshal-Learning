@@ -29,7 +29,20 @@ const projects = [
     link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day8-javaScript30/16%20-%20Mouse%20Move%20Shadow/index-START.html"
 
   },
+       {
+    name: " JS 30 DOM parent child understanding ",
+    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day5-jsDommanipulation/Task1_Favmovie/index.html"
+
+  },
+        {
+    name: " Type Sekho ",
+    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day6-javaScript30/30%20-%20Whack%20A%20Mole/index.html"
+
+  },
+
+
   
+
 
 
   
