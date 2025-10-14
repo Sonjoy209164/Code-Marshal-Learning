@@ -13,6 +13,10 @@ const projects = [
     name: " Alarm clock - Time ",
     link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day4-javaScript30/02%20-%20JS%20and%20CSS%20Clock/index-START.html"
   },
+    {
+    name: " DOM Playground ",
+    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day5-jsDommanipulation/Mini-Dom-Playground/index.html"
+  }
 
 
   
