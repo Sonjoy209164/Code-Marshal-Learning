@@ -16,7 +16,20 @@ const projects = [
     {
     name: " DOM Playground ",
     link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day5-jsDommanipulation/Mini-Dom-Playground/index.html"
-  }
+  },
+
+     {
+    name: " Task Manager ",
+    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day8-javaScript30/15%20-%20LocalStorage/index.html"
+
+  },
+
+     {
+    name: " Shadow on mouse movement ",
+    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day8-javaScript30/16%20-%20Mouse%20Move%20Shadow/index-START.html"
+
+  },
+  
 
 
   
