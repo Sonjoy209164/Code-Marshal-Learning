@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LocalStorage Tapas</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .wrapper {
+      background: #00adb5;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      color: #fff;
+      width: 300px;
+      transition: all 0.3s ease;
+    }
+
+    .wrapper:hover {
+      transform: scale(1.05);
+      background: rgba(0, 173, 181, 0.9);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    ul.plates {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem 0;
+    }
+
+    ul.plates li {
+      background: #028090;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .add-items input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .add-items input[type="submit"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      background: #222831;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+
+    .add-items input[type="submit"]:hover {
+      background: #393e46;
+    }
+
+    label {
+      cursor: pointer;
+      flex-grow: 1;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+
+    .done {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h2>LOCAL TAPAS</h2>
+    <ul class="plates"></ul>
+    <form class="add-items">
+      <input type="text" name="item" placeholder="Item Name" required />
+      <input type="submit" value="+ Add Item" />
+    </form>
+  </div>
+
+  <script>
+    const addItems = document.querySelector('.add-items');
+    const itemsList = document.querySelector('.plates');
+    const items = JSON.parse(localStorage.getItem('items')) || [];
+
+    // ---------- Populate the list ----------
+    function populateList(plates = [], platesList) {
+      platesList.innerHTML = plates
+        .map((plate, i) => {
+          return `
+            <li>
+              <input type="checkbox" data-index="${i}" id="item${i}" ${plate.done ? 'checked' : ''}>
+              <label for="item${i}" class="${plate.done ? 'done' : ''}">${plate.text}</label>
+            </li>
+          `;
+        })
+        .join('');
+    }
+
+    // ---------- Add new item ----------
+    function addItem(e) {
+      e.preventDefault();
+      const text = this.querySelector('[name=item]').value.trim();
+      if (!text) return; // avoid empty entries
+      const item = { text, done: false };
+      items.push(item);
+      localStorage.setItem('items', JSON.stringify(items));
+      populateList(items, itemsList);
+      this.reset();
+    }
+
+    // ---------- Toggle done state ----------
+    function toggleDone(e) {
+      if (!e.target.matches('input')) return;
+      const el = e.target;
+      const index = el.dataset.index;
+      items[index].done = !items[index].done;
+      localStorage.setItem('items', JSON.stringify(items));
+      populateList(items, itemsList);
+    }
+
+    addItems.addEventListener('submit', addItem);
+    itemsList.addEventListener('click', toggleDone);
+
+    // Initialize on load
+    populateList(items, itemsList);
+  </script>
+</body>
+</html>

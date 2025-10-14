@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://fav.farm/🔥">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>🧠 Pro Task Manager</h1>
+      <p>Organize. Prioritize. Execute.</p>
+    </header>
+
+    <main>
+      <form id="task-form">
+        <input type="text" id="task-name" placeholder="Task name..." required>
+        <input type="date" id="task-date" required>
+        <select id="task-priority">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+        <input type="number" id="task-duration" placeholder="Duration (mins)">
+        <button type="submit">Add Task</button>
+      </form>
+
+      <ul id="task-list"></ul>
+    </main>
+  </div>
+
+  <audio id="alarm-sound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
