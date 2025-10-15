@@ -1,0 +1,12 @@
+{
+  "name": "webcam-fun",
+  "version": "1.0.0",
+  "description": "YouCam Perfect Lite - Webcam Effects App",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "author": "Sonjoy Roy",
+  "license": "MIT",
+  "dependencies": {}
+}
