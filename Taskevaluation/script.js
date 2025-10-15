@@ -45,8 +45,11 @@ const projects = [
     link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day8-javaScript30/17%20-%20Sort%20Without%20Articles/index-START.html"
 
   },
-  
+          {
+    name: " Time Parsing :  convert to array Split and Calc",
+    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day9-javaScript30%20copy/18%20-%20Adding%20Up%20Times%20with%20Reduce/index-START.html"
 
+  },
   
 
 
