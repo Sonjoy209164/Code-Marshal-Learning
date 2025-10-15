@@ -50,17 +50,13 @@ const projects = [
     link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day9-javaScript30%20copy/18%20-%20Adding%20Up%20Times%20with%20Reduce/index-START.html"
 
   },
-    {
-    name: " Camera",
-    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day9-javaScript30%20copy/19%20-%20Webcam%20Fun/index.html"
+  //   {
+  //   name: " Camera",
+  //   link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day9-javaScript30%20copy/19%20-%20Webcam%20Fun/index.html"
 
-  },
+  // },
   
-  
-https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day9-javaScript30%20copy/19%20-%20Webcam%20Fun/index.html
 
-
-  
   // Add more manually as needed
 ];
 
