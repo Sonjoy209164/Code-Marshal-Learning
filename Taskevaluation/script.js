@@ -40,6 +40,12 @@ const projects = [
 
   },
 
+        {
+    name: " Sorting movie name without A|AN|THE",
+    link: "https://sonjoy209164.github.io/Code-Marshal-Learning/Task%20Day8-javaScript30/17%20-%20Sort%20Without%20Articles/index-START.html"
+
+  },
+  
 
   
 
